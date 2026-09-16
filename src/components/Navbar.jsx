@@ -1,46 +1,89 @@
-import { Menu, X } from "lucide-react";
+import { Menu, X, MessageCircle } from "lucide-react";
 import { useState } from "react";
 
-function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
+function Navbar({ t, language, setLanguage }) {
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  const navLinks = [
-    { name: "Home", href: "#home" },
-    { name: "Services", href: "#services" },
-    { name: "Our Work", href: "#work" },
-    { name: "About", href: "#about" },
-    { name: "Contact", href: "#contact" },
-  ];
+  const switchLanguage = () => {
+    setLanguage(language === "ar" ? "en" : "ar");
+    setMenuOpen(false);
+  };
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
 
   return (
     <header className="navbar">
-      <a href="#home" className="logo">
-        <span>MANIKGONJ CONTRACTING AND HOSPITALITY SERVICES</span>
+      {/* Logo */}
+      <a
+        href="#home"
+        className="logo"
+        onClick={closeMenu}
+        aria-label="Manikgonj"
+      >
+        MANIKGONJ
       </a>
 
-      <nav className={`nav-links ${isOpen ? "active" : ""}`}>
-        {navLinks.map((link) => (
-          <a
-            key={link.name}
-            href={link.href}
-            onClick={() => setIsOpen(false)}
-          >
-            {link.name}
-          </a>
-        ))}
+      {/* Desktop Navigation */}
+      <nav className={`nav-links ${menuOpen ? "active" : ""}`}>
+        <a href="#home" onClick={closeMenu}>
+          {t.nav.home}
+        </a>
+
+        <a href="#services" onClick={closeMenu}>
+          {t.nav.services}
+        </a>
+
+        <a href="#work" onClick={closeMenu}>
+          {t.nav.work}
+        </a>
+
+        <a href="#about" onClick={closeMenu}>
+          {t.nav.about}
+        </a>
+
+        <a href="#contact" onClick={closeMenu}>
+          {t.nav.contact}
+        </a>
       </nav>
 
-      <a href="https://wa.me/97470779475" className="nav-cta">
-        WhatsApp Us
-      </a>
+      {/* Right Side */}
+      <div className="navbar-actions">
+        {/* Language Switch */}
+        <button
+          className="language-switch"
+          onClick={switchLanguage}
+          aria-label={
+            language === "ar"
+              ? "Switch to English"
+              : "التبديل إلى العربية"
+          }
+        >
+          {language === "ar" ? "EN" : "العربية"}
+        </button>
 
-      <button
-        className="menu-button"
-        onClick={() => setIsOpen(!isOpen)}
-        aria-label="Toggle navigation"
-      >
-        {isOpen ? <X size={24} /> : <Menu size={24} />}
-      </button>
+        {/* WhatsApp */}
+        <a
+          href="https://wa.me/97470779475"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="nav-cta"
+        >
+          <MessageCircle size={15} />
+          <span>{t.nav.whatsapp}</span>
+        </a>
+
+        {/* Mobile Menu */}
+        <button
+          className="menu-button"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={menuOpen}
+        >
+          {menuOpen ? <X size={20} /> : <Menu size={20} />}
+        </button>
+      </div>
     </header>
   );
 }

@@ -741,101 +741,133 @@ h4 {
 
 .gallery-section {
   padding: 150px 0;
-
   background: var(--bg);
 }
 
 .gallery-heading {
   display: grid;
-
   grid-template-columns: 1.15fr 0.85fr;
-
   gap: 90px;
-
   align-items: end;
-
   margin-bottom: 70px;
 }
 
+/* Eyebrow */
+
+.gallery-heading .section-eyebrow {
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+}
+
+/* Main heading */
+
 .gallery-heading h2 {
-  font-size: clamp(3rem, 5.5vw, 5.6rem);
-
-  line-height: 0.94;
-
-  letter-spacing: -0.06em;
+  margin: 0;
+  font-size: clamp(3.4rem, 5.8vw, 5.8rem);
+  font-weight: 900;
+  line-height: 0.96;
+  letter-spacing: -0.055em;
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
 }
 
 .gallery-heading h2 em {
   font-family: "Playfair Display", Georgia, serif;
-  font-weight: 400;
+  font-weight: 500;
+  font-style: italic;
+  letter-spacing: -0.035em;
 }
+
+/* Description */
 
 .gallery-heading > p {
-  max-width: 390px;
-
+  max-width: 500px;
   color: var(--muted);
-
-  font-size: 0.9rem;
-  line-height: 1.85;
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.7;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
 }
+
+
+/* =========================================================
+   GALLERY GRID
+========================================================= */
 
 .gallery-grid {
   display: grid;
-
   grid-template-columns: repeat(12, 1fr);
-
-  gap: 24px;
+  gap: 28px;
 }
 
 .gallery-item {
   margin: 0;
+  min-width: 0;
 }
+
+
+/* =========================================================
+   GALLERY IMAGE
+========================================================= */
 
 .gallery-image-wrapper {
   position: relative;
-
   overflow: hidden;
-
   border-radius: var(--radius-md);
-
   background: #e5e3de;
 }
 
 .gallery-image-wrapper img {
   width: 100%;
   height: 100%;
-
   display: block;
-
   object-fit: cover;
-
-  transition: transform 0.8s var(--ease);
+  transition:
+    transform 0.8s var(--ease),
+    filter 0.5s ease;
 }
 
 .gallery-item:hover img {
   transform: scale(1.045);
 }
 
-.gallery-item p {
-  margin-top: 12px;
 
-  color: var(--muted);
+/* =========================================================
+   IMAGE TITLE
+========================================================= */
 
-  font-size: 0.7rem;
-
-  letter-spacing: 0.05em;
+.gallery-item p,
+.gallery-item-title {
+  margin-top: 16px;
+  margin-bottom: 0;
+  color: var(--text);
+  font-size: 1.15rem;
+  font-weight: 800;
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
 }
+
+
+/* =========================================================
+   IMAGE OVERLAY
+========================================================= */
 
 .gallery-overlay {
   position: absolute;
   inset: 0;
-
-  padding: 18px;
-
+  padding: 22px;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-
   color: #fff;
 
   opacity: 0;
@@ -843,11 +875,12 @@ h4 {
   background:
     linear-gradient(
       180deg,
-      rgba(0, 0, 0, 0.45),
-      transparent 50%
+      rgba(0, 0, 0, 0.52),
+      transparent 55%
     );
 
-  transition: opacity 0.4s ease;
+  transition:
+    opacity 0.4s ease;
 }
 
 .gallery-item:hover .gallery-overlay {
@@ -855,13 +888,24 @@ h4 {
 }
 
 .gallery-overlay span {
-  font-size: 0.65rem;
+  font-size: 1rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
 
-  letter-spacing: 0.12em;
+.gallery-overlay svg {
+  width: 25px;
+  height: 25px;
 }
 
 
-/* Gallery sizes */
+/* =========================================================
+   GALLERY SIZES
+========================================================= */
+
+/* Image 01 */
 
 .gallery-item-1 {
   grid-column: span 7;
@@ -871,15 +915,20 @@ h4 {
   height: 620px;
 }
 
+
+/* Image 02 */
+
 .gallery-item-2 {
   grid-column: span 5;
-
   margin-top: 100px;
 }
 
 .gallery-item-2 .gallery-image-wrapper {
   height: 520px;
 }
+
+
+/* Image 03 */
 
 .gallery-item-3 {
   grid-column: span 5;
@@ -889,15 +938,20 @@ h4 {
   height: 460px;
 }
 
+
+/* Image 04 */
+
 .gallery-item-4 {
   grid-column: span 7;
-
   margin-top: 80px;
 }
 
 .gallery-item-4 .gallery-image-wrapper {
   height: 560px;
 }
+
+
+/* Images 05 — 10 */
 
 .gallery-item-5,
 .gallery-item-6,
@@ -917,6 +971,325 @@ h4 {
   height: 380px;
 }
 
+
+/* =========================================================
+   ARABIC / RTL GALLERY
+========================================================= */
+
+.rtl .gallery-heading {
+  direction: rtl;
+}
+
+.rtl .gallery-heading .section-eyebrow {
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-align: right;
+}
+
+.rtl .gallery-heading h2 {
+  font-size: clamp(3.2rem, 5.5vw, 5.4rem);
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: 0;
+  text-align: right;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+}
+
+.rtl .gallery-heading h2 em {
+  font-family: inherit;
+  font-style: normal;
+  font-weight: 900;
+  letter-spacing: 0;
+}
+
+.rtl .gallery-heading > p {
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.9;
+  text-align: right;
+}
+
+.rtl .gallery-item {
+  direction: rtl;
+}
+
+.rtl .gallery-item p,
+.rtl .gallery-item-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  line-height: 1.6;
+  letter-spacing: 0;
+  text-align: right;
+}
+
+.rtl .gallery-overlay {
+  direction: ltr;
+}
+
+
+/* =========================================================
+   LARGE SCREENS
+========================================================= */
+
+@media (min-width: 1400px) {
+  .gallery-heading {
+    gap: 120px;
+    margin-bottom: 85px;
+  }
+
+  .gallery-heading h2 {
+    font-size: 6rem;
+  }
+
+  .gallery-heading > p {
+    font-size: 1.2rem;
+  }
+
+  .gallery-grid {
+    gap: 32px;
+  }
+
+  .gallery-item-1 .gallery-image-wrapper {
+    height: 680px;
+  }
+
+  .gallery-item-2 .gallery-image-wrapper {
+    height: 570px;
+  }
+
+  .gallery-item-3 .gallery-image-wrapper {
+    height: 500px;
+  }
+
+  .gallery-item-4 .gallery-image-wrapper {
+    height: 610px;
+  }
+
+  .gallery-item-5 .gallery-image-wrapper,
+  .gallery-item-6 .gallery-image-wrapper,
+  .gallery-item-7 .gallery-image-wrapper,
+  .gallery-item-8 .gallery-image-wrapper,
+  .gallery-item-9 .gallery-image-wrapper,
+  .gallery-item-10 .gallery-image-wrapper {
+    height: 420px;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1024px) {
+
+  .gallery-section {
+    padding: 110px 0;
+  }
+
+  .gallery-heading {
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    margin-bottom: 55px;
+  }
+
+  .gallery-heading h2,
+  .rtl .gallery-heading h2 {
+    font-size: clamp(3rem, 6vw, 4.5rem);
+  }
+
+  .gallery-heading > p,
+  .rtl .gallery-heading > p {
+    font-size: 1rem;
+  }
+
+  .gallery-grid {
+    gap: 20px;
+  }
+
+  .gallery-item-1 .gallery-image-wrapper {
+    height: 500px;
+  }
+
+  .gallery-item-2 {
+    margin-top: 70px;
+  }
+
+  .gallery-item-2 .gallery-image-wrapper {
+    height: 430px;
+  }
+
+  .gallery-item-3 .gallery-image-wrapper {
+    height: 390px;
+  }
+
+  .gallery-item-4 {
+    margin-top: 60px;
+  }
+
+  .gallery-item-4 .gallery-image-wrapper {
+    height: 470px;
+  }
+
+  .gallery-item-5 .gallery-image-wrapper,
+  .gallery-item-6 .gallery-image-wrapper,
+  .gallery-item-7 .gallery-image-wrapper,
+  .gallery-item-8 .gallery-image-wrapper,
+  .gallery-item-9 .gallery-image-wrapper,
+  .gallery-item-10 .gallery-image-wrapper {
+    height: 300px;
+  }
+
+  .gallery-item p,
+  .gallery-item-title,
+  .rtl .gallery-item p,
+  .rtl .gallery-item-title {
+    font-size: 1.05rem;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .gallery-section {
+    padding: 90px 0;
+  }
+
+  .gallery-heading {
+    display: block;
+    margin-bottom: 45px;
+  }
+
+  .gallery-heading .section-eyebrow {
+    font-size: 0.9rem;
+    margin-bottom: 16px;
+  }
+
+  .gallery-heading h2,
+  .rtl .gallery-heading h2 {
+    font-size: clamp(2.7rem, 12vw, 4rem);
+    line-height: 1.02;
+  }
+
+  .gallery-heading > p,
+  .rtl .gallery-heading > p {
+    max-width: 100%;
+    margin-top: 25px;
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+
+  /*
+    Keep the gallery visually interesting on mobile,
+    but don't allow oversized desktop spacing.
+  */
+
+  .gallery-item-1,
+  .gallery-item-2,
+  .gallery-item-3,
+  .gallery-item-4,
+  .gallery-item-5,
+  .gallery-item-6,
+  .gallery-item-7,
+  .gallery-item-8,
+  .gallery-item-9,
+  .gallery-item-10 {
+    grid-column: span 1;
+    margin-top: 0;
+  }
+
+  .gallery-item-1 .gallery-image-wrapper,
+  .gallery-item-2 .gallery-image-wrapper,
+  .gallery-item-3 .gallery-image-wrapper,
+  .gallery-item-4 .gallery-image-wrapper,
+  .gallery-item-5 .gallery-image-wrapper,
+  .gallery-item-6 .gallery-image-wrapper,
+  .gallery-item-7 .gallery-image-wrapper,
+  .gallery-item-8 .gallery-image-wrapper,
+  .gallery-item-9 .gallery-image-wrapper,
+  .gallery-item-10 .gallery-image-wrapper {
+    height: 300px;
+  }
+
+  .gallery-item p,
+  .gallery-item-title,
+  .rtl .gallery-item p,
+  .rtl .gallery-item-title {
+    margin-top: 11px;
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  .gallery-overlay {
+    padding: 14px;
+  }
+
+  .gallery-overlay span {
+    font-size: 0.85rem;
+  }
+
+  .gallery-overlay svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+  .gallery-section {
+    padding: 75px 0;
+  }
+
+  .gallery-heading h2,
+  .rtl .gallery-heading h2 {
+    font-size: 2.55rem;
+  }
+
+  .gallery-heading > p,
+  .rtl .gallery-heading > p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  .gallery-grid {
+    gap: 14px;
+  }
+
+  .gallery-item-1 .gallery-image-wrapper,
+  .gallery-item-2 .gallery-image-wrapper,
+  .gallery-item-3 .gallery-image-wrapper,
+  .gallery-item-4 .gallery-image-wrapper,
+  .gallery-item-5 .gallery-image-wrapper,
+  .gallery-item-6 .gallery-image-wrapper,
+  .gallery-item-7 .gallery-image-wrapper,
+  .gallery-item-8 .gallery-image-wrapper,
+  .gallery-item-9 .gallery-image-wrapper,
+  .gallery-item-10 .gallery-image-wrapper {
+    height: 240px;
+  }
+
+  .gallery-item p,
+  .gallery-item-title,
+  .rtl .gallery-item p,
+  .rtl .gallery-item-title {
+    font-size: 0.92rem;
+  }
+}
 
 /* =========================================================
    ABOUT
@@ -1446,6 +1819,93 @@ h4 {
   .gallery-item-9 .gallery-image-wrapper,
   .gallery-item-10 .gallery-image-wrapper {
     height: 350px;
+  }
+
+}
+/* =========================================================
+   NAVBAR ACTIONS
+========================================================= */
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.language-switch {
+  height: 38px;
+  min-width: 42px;
+  padding: 0 12px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+
+  background: transparent;
+  color: var(--text);
+
+  font-size: 0.7rem;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s var(--ease);
+}
+
+.language-switch:hover {
+  background: var(--dark);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.navbar-actions .nav-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+}
+
+
+/* =========================================================
+   NAVBAR RTL
+========================================================= */
+
+.rtl .navbar {
+  direction: rtl;
+}
+
+.rtl .nav-links {
+  direction: rtl;
+}
+
+
+/* =========================================================
+   MOBILE NAVBAR ACTIONS
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .navbar-actions {
+    margin-left: auto;
+  }
+
+  .navbar-actions .nav-cta {
+    display: none;
+  }
+
+  .language-switch {
+    height: 36px;
+  }
+
+  .menu-button {
+    display: flex;
   }
 
 }

@@ -1,36 +1,46 @@
 import { ArrowUpRight } from "lucide-react";
 
-function About() {
+function About({ t }) {
   return (
     <section className="about-section" id="about">
       <div className="section-container">
         <div className="about-grid">
 
+          {/* Section Number */}
           <div className="about-number">
             <span>03</span>
-            <span>ABOUT Manikgonj Contracting and Hospitality Services</span>
+
+            <span>
+              {t.about.eyebrow}
+            </span>
           </div>
 
+          {/* About Content */}
           <div className="about-content">
-            <p className="section-eyebrow">ABOUT Manikgonj Contracting and Hospitality Services</p>
 
-            <h2>
-              We make marble
-              <br />
-              look <em>beautiful again.</em>
-            </h2>
-
-            <p className="about-text">
-              Manikgonj Contracting and Hospitality Services provides professional marble polishing and restoration
-              services in Qatar. Our focus is simple — improve the appearance
-              of marble surfaces and deliver a clean, smooth and polished
-              finish.
+            <p className="section-eyebrow">
+              {t.about.eyebrow}
             </p>
 
-            <a href="#contact" className="about-link">
-              Talk to QNAS
+            <h2
+              dangerouslySetInnerHTML={{
+                __html: t.about.title,
+              }}
+            />
+
+            <p className="about-text">
+              {t.about.description}
+            </p>
+
+            <a
+              href="#contact"
+              className="about-link"
+            >
+              {t.about.button}
+
               <ArrowUpRight size={18} />
             </a>
+
           </div>
 
         </div>

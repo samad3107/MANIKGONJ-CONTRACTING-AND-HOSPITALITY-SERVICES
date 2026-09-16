@@ -1,6 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
 
-// Import images directly from src/assets
+// Existing images — paths kept exactly the same
 import afterMarble from "../assets/after-marble.jpg";
 import heroMarble from "../assets/hero-marble.jpg";
 import marbelpolish1 from "../assets/marbelpolish1.jpeg";
@@ -13,83 +13,58 @@ import stairsBefore from "../assets/stairsbefore.jpeg";
 const galleryImages = [
   {
     src: marbelpolish1,
-    title: "Marble Polishing",
+    key: "marblePolishing",
   },
   {
     src: marbelpolish2,
-    title: "Floor Restoration",
+    key: "floorRestoration",
   },
   {
     src: marbelpolish3,
-    title: "Polished Finish",
+    key: "polishedFinish",
   },
   {
     src: afterMarble,
-    title: "After Restoration",
+    key: "afterRestoration",
   },
   {
     src: stairsBefore,
-    title: "Stairs Before",
+    key: "stairsBefore",
   },
   {
     src: stairsAfter,
-    title: "Stairs After",
+    key: "stairsAfter",
   },
   {
     src: outsideForsa,
-    title: "Exterior Work",
+    key: "exteriorWork",
   },
   {
     src: heroMarble,
-    title: "Gloss Finish",
+    key: "glossFinish",
   },
 ];
 
-function Gallery() {
+function Gallery({ t }) {
   return (
     <section className="gallery-section" id="gallery">
       <div className="section-container">
 
         <div className="gallery-heading">
           <div>
-            <p 
-              className="section-eyebrow"
-              style={{
-                fontSize: "1.1rem",
-                fontWeight: 800,
-                letterSpacing: "0.12em",
-                textTransform: "uppercase",
-                WebkitFontSmoothing: "antialiased"
-              }}
-            >
-              SELECTED WORK
+            <p className="section-eyebrow">
+              {t.gallery.eyebrow}
             </p>
 
             <h2
-              style={{
-                fontSize: "3.5rem",
-                fontWeight: 900,
-                lineHeight: 1.1,
-                letterSpacing: "-0.02em",
-                WebkitFontSmoothing: "antialiased"
+              dangerouslySetInnerHTML={{
+                __html: t.gallery.title,
               }}
-            >
-              A finish that
-              <br />
-              <em style={{ fontWeight: 800 }}>speaks for itself.</em>
-            </h2>
+            />
           </div>
 
-          <p
-            style={{
-              fontSize: "1.25rem",
-              fontWeight: 600,
-              lineHeight: 1.5,
-              WebkitFontSmoothing: "antialiased"
-            }}
-          >
-            A selection of marble polishing and restoration work completed
-            by Manikgonj Contracting and Hospitality Services.
+          <p>
+            {t.gallery.description}
           </p>
         </div>
 
@@ -97,29 +72,29 @@ function Gallery() {
           {galleryImages.map((image, index) => (
             <article
               className={`gallery-item gallery-item-${index + 1}`}
-              key={index}
+              key={image.key}
             >
               <div className="gallery-image-wrapper">
-                <img src={image.src} alt={image.title} loading="lazy" />
+                <img
+                  src={image.src}
+                  alt={t.gallery.images[image.key]}
+                  loading="lazy"
+                />
 
                 <div className="gallery-overlay">
-                  <span style={{ fontSize: "1.25rem", fontWeight: 800 }}>
+                  <span>
                     {String(index + 1).padStart(2, "0")}
                   </span>
-                  <ArrowUpRight size={24} strokeWidth={2.5} />
+
+                  <ArrowUpRight
+                    size={24}
+                    strokeWidth={2.5}
+                  />
                 </div>
               </div>
 
-              <p
-                style={{
-                  fontSize: "1.35rem",
-                  fontWeight: 800,
-                  letterSpacing: "-0.01em",
-                  marginTop: "0.75rem",
-                  WebkitFontSmoothing: "antialiased"
-                }}
-              >
-                {image.title}
+              <p className="gallery-item-title">
+                {t.gallery.images[image.key]}
               </p>
             </article>
           ))}

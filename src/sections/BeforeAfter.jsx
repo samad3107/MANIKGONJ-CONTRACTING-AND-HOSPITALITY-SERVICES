@@ -1,58 +1,68 @@
 import { ArrowUpRight } from "lucide-react";
 
-function BeforeAfter() {
+function BeforeAfter({ t }) {
   return (
     <section className="before-after-section" id="work">
       <div className="section-container">
 
+        {/* Heading */}
         <div className="before-after-heading">
           <div>
-            <p className="section-eyebrow">OUR WORK</p>
+            <p className="section-eyebrow">
+              {t.beforeAfter.eyebrow}
+            </p>
 
-            <h2>
-              From worn
-              <br />
-              to <em>refined.</em>
-            </h2>
+            <h2
+              dangerouslySetInnerHTML={{
+                __html: t.beforeAfter.title,
+              }}
+            />
           </div>
 
           <p>
-            See the difference professional marble polishing and restoration
-            can make.
+            {t.beforeAfter.description}
           </p>
         </div>
 
+        {/* Comparison */}
         <div className="comparison">
 
+          {/* Before */}
           <div className="comparison-card">
             <img
               src="/images/before-marble.jpg"
-              alt="Marble surface before restoration"
+              alt={t.beforeAfter.before}
             />
 
             <div className="comparison-label">
               <span>01</span>
-              <strong>BEFORE</strong>
+              <strong>
+                {t.beforeAfter.before}
+              </strong>
             </div>
           </div>
 
+          {/* After */}
           <div className="comparison-card">
             <img
               src="/images/after-marble.jpg"
-              alt="Marble surface after polishing"
+              alt={t.beforeAfter.after}
             />
 
             <div className="comparison-label">
               <span>02</span>
-              <strong>AFTER</strong>
+              <strong>
+                {t.beforeAfter.after}
+              </strong>
             </div>
           </div>
 
         </div>
 
+        {/* Gallery Link */}
         <div className="work-link">
           <a href="#gallery">
-            View more of our work
+            {t.beforeAfter.link}
             <ArrowUpRight size={18} />
           </a>
         </div>
