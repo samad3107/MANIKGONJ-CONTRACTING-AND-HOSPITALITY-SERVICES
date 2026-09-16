@@ -48,7 +48,7 @@ function Contact({ t }) {
                 {t.contact.whatsapp}
               </span>
 
-              <strong>
+              <strong dir="ltr">
                 +974 7077 9475
               </strong>
             </div>
@@ -71,7 +71,7 @@ function Contact({ t }) {
                 {t.contact.phone}
               </span>
 
-              <strong>
+              <strong dir="ltr">
                 +974 3066 6258
               </strong>
             </div>
