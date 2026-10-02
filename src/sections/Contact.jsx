@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Mail,
   MapPin,
@@ -139,6 +140,35 @@ function Contact({ t }) {
             {t.contact.addressText}
           </p>
         </div>
+
+        {/* Footer Credits */}
+        <footer style={{ borderTop: '1px solid var(--border-color, #e5e7eb)', padding: '2rem 1rem', color: 'var(--text-muted, #6b7280)', fontSize: '0.85rem', marginTop: '3rem' }}>
+          <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.75rem', textAlign: 'center' }}>
+            <p>© {new Date().getFullYear()} All rights reserved.</p>
+            
+            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', gap: '0.5rem' }}>
+              <span>Made by <strong style={{ color: '#ffffff' }}>@Xenosys Qatar</strong></span>
+              <span>•</span>
+              <a
+                href="https://xenosysweb.com/"
+                target="_blank"
+                rel="noreferrer"
+                style={{ color: 'var(--accent-gold, #d97706)', textDecoration: 'none', fontWeight: '600' }}
+              >
+                Xenosysweb.com
+              </a>
+              <span>•</span>
+              <a
+                href="https://wa.me/97470643918"
+                target="_blank"
+                rel="noreferrer"
+                style={{ color: 'var(--accent-emerald, #059669)', textDecoration: 'none', fontWeight: '600' }}
+              >
+                WhatsApp 7064 3918
+              </a>
+            </div>
+          </div>
+        </footer>
 
       </div>
     </section>

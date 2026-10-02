@@ -43,11 +43,15 @@ function Hero({ t }) {
             <MessageCircle size={18} />
             {t.nav.whatsapp}
           </a>
+
+          <span className="hero-cr-badge">
+            CR NO: 215131
+          </span>
         </div>
       </div>
 
       <div className="hero-bottom">
-        <span>DOHA · QATAR · CR NO: 215131</span>
+        <span>DOHA · QATAR</span>
 
         <span>SCROLL TO EXPLORE ↓</span>
       </div>
