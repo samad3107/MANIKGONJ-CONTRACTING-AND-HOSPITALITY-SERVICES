@@ -47,7 +47,7 @@ function Hero({ t }) {
       </div>
 
       <div className="hero-bottom">
-        <span>DOHA · QATAR</span>
+        <span>DOHA · QATAR · CR NO: 215131</span>
 
         <span>SCROLL TO EXPLORE ↓</span>
       </div>

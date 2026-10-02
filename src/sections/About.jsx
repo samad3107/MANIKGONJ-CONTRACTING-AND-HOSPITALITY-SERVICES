@@ -32,6 +32,11 @@ function About({ t }) {
               {t.about.description}
             </p>
 
+            {/* Registration / CR Information */}
+            <p className="about-cr font-mono text-sm text-gray-500">
+              CR No: 215131
+            </p>
+
             <a
               href="#contact"
               className="about-link"
